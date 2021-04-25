@@ -1,0 +1,103 @@
+<div class="alert alert-info" *ngIf="!pais; else divPais">
+  Espere por favor...
+</div>
+
+<ng-template #divPais>
+  <div class="px-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid">
+      <h1 class="display-5 text-center fw-bold mb-4">{{ pais.name }}</h1>
+
+      <img
+        [src]="pais.flag"
+        alt="Bandera de {{ pais.name }} "
+        class="col-md-8 fs-4 shadow rounded mx-auto mb-4 d-block img-fluid"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h3>Información básica</h3>
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Capital</h5>
+          <p class="card-text">{{ pais.capital }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Población</h5>
+          <p class="card-text">{{ pais.population | number }} de personas</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Código numérico</h5>
+          <p class="card-text">{{ pais.numericCode }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h3>Traducciones</h3>
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Español</h5>
+          <p class="card-text">{{ pais.translations.es }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Portugués</h5>
+          <p class="card-text">{{ pais.translations.br }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Italiano</h5>
+          <p class="card-text">{{ pais.translations.it }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Francés</h5>
+          <p class="card-text">{{ pais.translations.fr }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Alemán</h5>
+          <p class="card-text">{{ pais.translations.de }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Persa</h5>
+          <p class="card-text">{{ pais.translations.fa }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
