@@ -10,93 +10,125 @@
       <img
         [src]="pais.flag"
         alt="Bandera de {{ pais.name }} "
-        class="col-md-8 fs-4 shadow rounded mx-auto mb-4 d-block img-fluid"
+        class="col-md-8 fs-4 shadow rounded mx-auto mb-4 d-block img-fluid animate__animated animate__fadeIn animate__fast"
       />
     </div>
   </div>
 
-  <div class="row mt-5">
-    <h3>Información básica</h3>
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Capital</h5>
-          <p class="card-text">{{ pais.capital }}</p>
+  <div class="animate__animated animate__fadeIn">
+    <div class="row mt-5">
+      <h3>Información básica</h3>
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Capital</h5>
+            <p class="card-text" *ngIf="pais.capital === ''; else capital">
+              Sin capital
+            </p>
+            <ng-template #capital>
+              <p class="card-text">{{ pais.capital }}</p>
+            </ng-template>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Población</h5>
-          <p class="card-text">{{ pais.population | number }} de personas</p>
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Población</h5>
+            <p class="card-text">{{ pais.population | number }} de personas</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Código numérico</h5>
+            <p class="card-text">{{ pais.numericCode }}</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Código numérico</h5>
-          <p class="card-text">{{ pais.numericCode }}</p>
+    <div class="row mt-4">
+      <h3>Traducciones</h3>
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Español</h5>
+            <p class="card-text">{{ pais.translations.es }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Portugués</h5>
+            <p class="card-text">{{ pais.translations.br }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Italiano</h5>
+            <p class="card-text">{{ pais.translations.it }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Francés</h5>
+            <p class="card-text">{{ pais.translations.fr }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Alemán</h5>
+            <p class="card-text">{{ pais.translations.de }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Persa</h5>
+            <p class="card-text">{{ pais.translations.fa }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row mt-4">
-    <h3>Traducciones</h3>
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Español</h5>
-          <p class="card-text">{{ pais.translations.es }}</p>
-        </div>
-      </div>
-    </div>
+    <hr />
 
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Portugués</h5>
-          <p class="card-text">{{ pais.translations.br }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Italiano</h5>
-          <p class="card-text">{{ pais.translations.it }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Francés</h5>
-          <p class="card-text">{{ pais.translations.fr }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Alemán</h5>
-          <p class="card-text">{{ pais.translations.de }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Persa</h5>
-          <p class="card-text">{{ pais.translations.fa }}</p>
-        </div>
+    <div class="mx-auto mb-5 d-block">
+      <p>Puede volver a buscar países nuevamente 🗺</p>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" routerLink="" class="btn btn-outline-primary">
+          Por nombre
+        </button>
+        <button
+          type="button"
+          routerLink="/region"
+          class="btn btn-outline-primary"
+        >
+          Por región
+        </button>
+        <button
+          type="button"
+          routerLink="/capital"
+          class="btn btn-outline-primary"
+        >
+          Por capital
+        </button>
       </div>
     </div>
   </div>

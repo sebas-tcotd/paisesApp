@@ -1,1 +1,39 @@
-<p>por-region works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>
+    Buscar por región: <small>{{ regionActiva | titlecase }}</small>
+  </h2>
+
+  <div class="row">
+    <div class="col">
+      <ul class="nav nav-tabs">
+        <li class="nav-item" *ngFor="let region of regiones">
+          <!-- [class.active]="region === regionActiva" -->
+          <!-- [ngClass]="{
+              'active': region === regionActiva
+            }" -->
+
+          <a
+            class="nav-link"
+            aria-current="page"
+            (click)="activarRegion(region)"
+            [class]="getClaseCSS(region)"
+          >
+            {{ region | titlecase }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="alert alert-info mt-3"
+    role="alert"
+    *ngIf="regionActiva === ''; else paises"
+  >
+    Seleccione una región.
+  </div>
+
+  <ng-template #paises>
+    <app-pais-tabla [paises]="paisesRegiones"></app-pais-tabla>
+  </ng-template>
+</div>
